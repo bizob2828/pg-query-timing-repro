@@ -2,7 +2,7 @@
 
 This repository demonstrates a reproduction of an issue where Node agent instrumentation of the [`node-postgres`](https://github.com/brianc/node-postgres) module is incorrectly adding database time for internally queued queries.
 
-This issue is being tracked [here](https://igithub.com/newrelic/node-newrelic/issues/345).
+This issue is being tracked [here](https://github.com/newrelic/node-newrelic/issues/345).
 
 ### Hypothesis
 If multiple queries are run nearly simultaneously with the `node-postgres` (`pg`) package, the Client and Pool code will add the query to the queue within the instrumented `query` function [here](https://github.com/brianc/node-postgres/blob/bf469399b88bcdf86eff096fd0dd05684adc1117/packages/pg/lib/client.js#L478). The queueing happens [here](https://github.com/brianc/node-postgres/blob/bf469399b88bcdf86eff096fd0dd05684adc1117/packages/pg/lib/client.js#L557).
