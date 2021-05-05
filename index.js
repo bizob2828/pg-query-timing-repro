@@ -1,6 +1,6 @@
 "use strict"
 
-const newrelic = require("newrelic")
+// const newrelic = require("newrelic")
 const { Client } = require("pg")
 const Koa = require('koa')
 const Router = require('koa-router')
@@ -32,7 +32,7 @@ const getPup = async () => {
 
 
 async function main() {
-  const client = new Client(PG_URI)
+  const client = new Client(dbconfig)
   try {
     await client.connect()
     console.log("Connection has been established successfully.")
@@ -61,6 +61,10 @@ router.get('/', async (ctx, next) => {
   const data = await getPup()
 
   ctx.body = data
+})
+.get('/kill', async (ctx) => {
+  ctx.body = 'goodbye'
+  process.exit(0)
 })
 
 app.use(router.routes())

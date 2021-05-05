@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "description": "",
   "scripts": {
-    "start": "node -r dotenv/config ./index.js"
+    "start": "node -r dotenv/config -r newrelic ./index.js",
+    "prof-agent": "node --prof -r dotenv/config -r newrelic ./index.js",
+    "prof-no-agent": "node --prof -r dotenv/config -r newrelic ./index.js"
   },
   "author": "",
   "license": "ISC",
