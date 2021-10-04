@@ -1,7 +1,9 @@
+require('dotenv').config()
+
 module.exports = {
-  USER: process.env.PG_USER,
-  HOST: process.env.PG_HOST,
-  DATABASE: process.env.PG_DATABASE,
-  PASSWORD: process.env.PG_PASSWORD,
-  PORT: process.env.PG_PORT
+  user: process.env.PG_USER,
+  host: process.env.PG_HOST,
+  database: process.env.PG_DATABASE,
+  password: process.env.PG_PASSWORD,
+  port: process.env.PG_PORT
 }
